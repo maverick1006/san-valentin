@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> ❤️</title>
+<title>❤️</title>
 
 <style>
 body {
@@ -85,6 +85,32 @@ body {
 .card-content h2 {
     color: #ff4b5c;
 }
+
+/* Botones */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    border: none;
+    padding: 10px 18px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.yes {
+    background: #ff4b5c;
+    color: white;
+}
+
+.no {
+    background: #ddd;
+    position: relative;
+}
 </style>
 </head>
 
@@ -110,18 +136,26 @@ for (let i = 0; i < 30; i++) {
 </div>
 
 <!-- Carta -->
-<div class="card" id="card" onclick="closeCard()">
+<div class="card" id="card">
     <div class="card-content">
         <h2>Para ti, mi amorrr ❤️</h2>
+
         <p>
-            Quiero que sepas que te quiero muchísimo 💕  
-            Gracias por ser parte de mi vida.
+            Te quiero muchísimo 💕  
+            Gracias por ser parte de mi vida y hacer mis días más lindos.
         </p>
-        <p>
-            ¿Te gustaría ser mi San Valentín este  
+
+        <p style="font-weight: bold;">
+            ¿Quieres ser mi San Valentín este  
             <strong>14 de febrero</strong>? 🌹✨
         </p>
-        <p>Con todo mi corazón 💖</p>
+
+        <div class="buttons">
+            <button class="yes" onclick="sayYes()">Sí 💖</button>
+            <button class="no" onclick="moveNo(event)">No 😅</button>
+        </div>
+
+        <p id="result" style="margin-top:15px;"></p>
     </div>
 </div>
 
@@ -130,8 +164,16 @@ function openCard() {
     document.getElementById("card").style.display = "flex";
 }
 
-function closeCard() {
-    document.getElementById("card").style.display = "none";
+function moveNo(e) {
+    const btn = e.target;
+    const x = Math.random() * 160 - 80;
+    const y = Math.random() * 160 - 80;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+function sayYes() {
+    document.getElementById("result").innerHTML =
+        "💘 Sabía que dirías que sí 💘<br>Te amo muchísimo ❤️";
 }
 </script>
 
