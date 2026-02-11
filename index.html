@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(#ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+/* Estrellas */
+.star {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(-20px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.8; }
+}
+
+/* Ramo */
+.bouquet {
+    cursor: pointer;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.flower {
+    font-size: 60px;
+    animation: sway 3s infinite ease-in-out;
+}
+
+@keyframes sway {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+/* Carta */
+.card {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.card-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 320px;
+    text-align: center;
+    animation: open 0.8s ease;
+}
+
+@keyframes open {
+    from { transform: scale(0.6); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.card-content h2 {
+    color: #ff4b5c;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Estrellas -->
+<script>
+for (let i = 0; i < 30; i++) {
+    let star = document.createElement("div");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.animationDelay = Math.random() * 5 + "s";
+    document.body.appendChild(star);
+}
+</script>
+
+<!-- Ramo -->
+<div class="bouquet" onclick="openCard()">
+    <div class="flower">🌹🌷🌹</div>
+    <div class="flower">🌸💐🌸</div>
+    <p style="color:white; font-weight:bold;">Toca el ramo 💖</p>
+</div>
+
+<!-- Carta -->
+<div class="card" id="card" onclick="closeCard()">
+    <div class="card-content">
+        <h2>Para ti, mi amor ❤️</h2>
+        <p>
+            Quiero que sepas que te quiero muchísimo 💕  
+            Gracias por ser parte de mi vida y llenarla de luz.
+        </p>
+        <p>
+            ¿Te gustaría ser mi San Valentín este  
+            <strong>14 de febrero</strong>? 🌹✨
+        </p>
+        <p>Con todo mi corazón 💖</p>
+    </div>
+</div>
+
+<script>
+function openCard() {
+    document.getElementById("card").style.display = "flex";
+}
+
+function closeCard() {
+    document.getElementById("card").style.display = "none";
+}
+</script>
+
+</body>
+</html>
